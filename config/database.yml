@@ -29,9 +29,9 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  database: prestame
+  database: heroku_0ad0c0ccbb82b9c	
   pool: 5
   timeout: 5000
-  username: root
-  password: 1244244
+  username: ac9b6a6d272377
+  password: 097bbabe
   socket: /tmp/mysql.sock
