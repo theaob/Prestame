@@ -27,11 +27,11 @@ test:
   socket: /tmp/mysql.sock
 
 production:
-  adapter: mysql
-  encoding: utf8
-  database: heroku_0ad0c0ccbb82b9c	
+  adapter: postgresql
+  encoding: unicode
+  database: smooth_sky_21504	
   pool: 5
   timeout: 5000
-  username: ac9b6a6d272377
-  password: 097bbabe
-  socket: /tmp/mysql.sock
+  username: ejolzuvtkeuedr
+  password: 
+#  socket: /tmp/mysql.sock
