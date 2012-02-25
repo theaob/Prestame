@@ -15,19 +15,7 @@
     <meta charset="utf-8">
 
   <%= csrf_meta_tags %>
-  <%= javascript_include_tag "jquery" %>
-   <%= javascript_include_tag "bootstrap-transition.js" %>
-    <%= javascript_include_tag "bootstrap-alert.js" %>
-    <%= javascript_include_tag "bootstrap-modal.js" %>
-    <%= javascript_include_tag "bootstrap-dropdown.js" %>
-    <%= javascript_include_tag "bootstrap-scrollspy.js" %>
-    <%= javascript_include_tag "bootstrap-tab.js" %>
-    <%= javascript_include_tag "bootstrap-tooltip.js" %>
-    <%= javascript_include_tag "bootstrap-popover.js" %>
-    <%= javascript_include_tag "bootstrap-button.js" %>
-    <%= javascript_include_tag "bootstrap-collapse.js" %>
-    <%= javascript_include_tag "bootstrap-carousel.js" %>
-    <%= javascript_include_tag "bootstrap-typeahead.js" %>
+  
     <script type="text/javascript">
 (function() {
     if (typeof window.janrain !== 'object') window.janrain = {};
@@ -93,7 +81,7 @@
                     </ul>
               </li>
               <li><%= link_to "Prestamé Stats",{:controller=>'stats',:action=>'index'}%></li>
-              <li><%= link_to "About",{:controller=>'home',:action=>'about'}%></li>
+              <li><a data-toggle="modal" href="#aboutModal">About</a></li>
             </ul>
             <p class="navbar- pull-right">
             	<% if @currentuser %>
@@ -129,6 +117,19 @@
     </div>
 
 
+<div id="aboutModal" class="modal hide fade" style="display: none; ">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>About Prestamé</h3>
+            </div>
+            <div class="modal-body">
+              <p>Prestamé is developed by Onur Baykal for RailsArena contest.</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn btn-warning" data-dismiss="modal">Close</a>
+            </div>
+          </div>
+
 <div id="loginModal" class="modal hide fade" style="display: none; ">
             <div class="modal-header">
               <a class="close" data-dismiss="modal">×</a>
@@ -141,6 +142,18 @@
               <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
             </div>
           </div>
-
+<%= javascript_include_tag "jquery" %>
+   <%= javascript_include_tag "bootstrap-transition.js" %>
+    <%= javascript_include_tag "bootstrap-alert.js" %>
+    <%= javascript_include_tag "bootstrap-modal.js" %>
+    <%= javascript_include_tag "bootstrap-dropdown.js" %>
+    <%= javascript_include_tag "bootstrap-scrollspy.js" %>
+    <%= javascript_include_tag "bootstrap-tab.js" %>
+    <%= javascript_include_tag "bootstrap-tooltip.js" %>
+    <%= javascript_include_tag "bootstrap-popover.js" %>
+    <%= javascript_include_tag "bootstrap-button.js" %>
+    <%= javascript_include_tag "bootstrap-collapse.js" %>
+    <%= javascript_include_tag "bootstrap-carousel.js" %>
+    <%= javascript_include_tag "bootstrap-typeahead.js" %>
 </body>
 </html>
