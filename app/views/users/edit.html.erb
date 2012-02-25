@@ -1,0 +1,14 @@
+<div class='span4'>
+	<h2>Edit Profile</h2><hr/>
+<%= form_for(:user, :url=>{:action=>'update'}, :html=>{:class=>'.form-horizontal'}) do |f|%>
+	<fieldset>
+	<%= f.label :name, 'Complete Name :' %>
+	<%= f.text_field(:name)%><br/>
+	<%= f.label :email, 'E-Mail Address :' %>
+	<%= f.text_field(:email)%><br/>
+	<div class="form-actions">
+	<%= submit_tag('Update Your Profile',:class=>'btn btn-inverse')%>
+	</div>
+	</fieldset>
+<% end %>
+</div>

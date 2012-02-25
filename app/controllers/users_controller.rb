@@ -5,4 +5,9 @@ class UsersController < ApplicationController
 		
 		
 	end
+	
+	def stats
+		
+		redirect_to(:controller=>'stats',:action=>'user')
+	end
 end

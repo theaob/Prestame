@@ -5,6 +5,10 @@ class BorrowsController < ApplicationController
 		
 	end
 	
+	def index
+		redirect_to(:action=>'list')
+	end
+	
 	def create
 		@borrow = Borrow.new(params[:borrow])
 		@borrow.user_id = session[:user_id]
@@ -19,7 +23,17 @@ class BorrowsController < ApplicationController
 	end
 	
 	def list
+		@borrows = Borrow.all
 		
-		
+	end
+	
+	def active
+		@borrows = Borrow.where(:paid=>false);
+		render('list')
+	end
+	
+	def completed
+		@borrows = Borrow.where(:paid=>true);
+		render('list')
 	end
 end

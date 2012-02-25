@@ -1,0 +1,56 @@
+
+<div class="span6">
+	
+<h2>Borrowings</h2>	<br/>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>	
+		<th>ID</th>
+		<th>Receiver</th>
+		<th>Amount</th>
+		<th>Interest</th>
+		<th>Due Date</th>
+		<th>Is Paid?</th>
+		<th>Given At</th>
+		<th>Lender</th>	
+		</tr>	
+	</thead>
+	<tbody>	
+		<% @borrows.each do |borrow| %>
+			<tr>
+				<td>
+					<%= borrow.id %>
+				</td>
+				<td>
+					<%= borrow.receiver %>
+				</td>
+				<td>
+					<%= borrow.amount %>
+				</td>
+				<td>
+					<%= borrow.interest %>
+				</td>
+				<td>
+					<%= borrow.duedate %>
+				</td>
+				<td>
+					<%= borrow.paid %>
+				</td>
+				<td>
+					<%= borrow.created_at %>
+				</td>
+				<td>
+					<%= borrow.user_id%>
+				</td>	
+			</tr>
+		<% end %>	
+	
+	</tbody>
+</table>
+<div class="form-actions">
+<%= link_to "Lend Someone",{:controller=>'borrows',:action=>'new'},:class=>'btn btn-info'%>&nbsp;
+<%= link_to "Active Lendings",{:controller=>'borrows',:action=>'active'},:class=>'btn btn-info'%>&nbsp;
+<%= link_to "Completed Lendings",{:controller=>'borrows',:action=>'completed'},:class=>'btn btn-info'%>
+	
+</div>
+</div>
