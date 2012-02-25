@@ -7,7 +7,10 @@ gem 'rails', '3.2.1'
 # gem 'rake', "0.8.7"
 gem 'mysql'
 
+gem 'devise'
 gem 'twitter'
+gem 'omniauth'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :development do

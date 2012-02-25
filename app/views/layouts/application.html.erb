@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Prestamé</title>
-  <link href="./css/bootstrap.css" rel="stylesheet">
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
   <style type="text/css">
       body {
         padding-top: 60px;
@@ -12,11 +12,22 @@
         padding: 9px 0;
       }
     </style>
-    <link href="./css/bootstrap-responsive.css" rel="stylesheet">
+    <meta charset="utf-8">
 
   <%= csrf_meta_tags %>
-      <script src="./js/bootstrap-dropdown.js"></script>
     <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap-transition.js"></script>
+    <script src="./js/bootstrap-alert.js"></script>
+    <script src="./js/bootstrap-modal.js"></script>
+    <script src="./js/bootstrap-dropdown.js"></script>
+    <script src="./js/bootstrap-scrollspy.js"></script>
+    <script src="./js/bootstrap-tab.js"></script>
+    <script src="./js/bootstrap-tooltip.js"></script>
+    <script src="./js/bootstrap-popover.js"></script>
+    <script src="./js/bootstrap-button.js"></script>
+    <script src="./js/bootstrap-collapse.js"></script>
+    <script src="./js/bootstrap-carousel.js"></script>
+    <script src="./js/bootstrap-typeahead.js"></script>
 </head>
 <body>
 
@@ -70,21 +81,15 @@
 <div id="loginModal" class="modal hide fade" style="display: none; ">
             <div class="modal-header">
               <a class="close" data-dismiss="modal">×</a>
-              <h3>Modal Heading</h3>
+              <h3>Login via OAuth</h3>
             </div>
             <div class="modal-body">
-              <h4>Text in a modal</h4>
-              <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.</p>
-
-              <h4>Popover in a modal</h4>
-              <p>This <a href="#" class="btn popover-test" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">button</a> should trigger a popover on hover.</p>
-
-              <h4>Tooltips in a modal</h4>
-              <p><a href="#" class="tooltip-test" data-original-title="Tooltip">This link</a> and <a href="#" class="tooltip-test" data-original-title="Tooltip">that link</a> should have tooltips on hover.</p>
+              <h4>Social Networks</h4>
+              <a href="/auth/twitter" class="auth_provider"><img src="./img/twitter_128.png"/></a>
+              <a href="/auth/facebook" class="auth_provider"><img src="./img/facebook_128.png"/></a>
             </div>
             <div class="modal-footer">
-              <a href="#" class="btn btn-primary">Save changes</a>
-              <a href="#" class="btn" data-dismiss="modal">Close</a>
+              <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
             </div>
           </div>
 
