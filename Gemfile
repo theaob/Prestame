@@ -5,17 +5,17 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 # gem 'rake', "0.8.7"
-gem 'mysql'
 
-gem 'devise'
-gem 'twitter'
-gem 'omniauth'
+
+gem 'devise','1.1.rc0'
+#gem 'twitter'
 gem 'nifty-generators'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :development do
   gem 'rspec-rails'
+  gem 'mysql'
 end
 
 

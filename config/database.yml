@@ -34,4 +34,3 @@ production:
   timeout: 5000
   username: ejolzuvtkeuedr
   password: 
-#  socket: /tmp/mysql.sock
