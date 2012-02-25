@@ -33,7 +33,7 @@
     if (typeof window.janrain !== 'object') window.janrain = {};
     window.janrain.settings = {};
     
-    janrain.settings.tokenUrl = 'http://localhost:3000/authentications/';
+    janrain.settings.tokenUrl = 'http://prestame.herokuapp.com/authentications/';
 
     function isReady() { janrain.ready = true; };
     if (document.addEventListener) {
@@ -56,6 +56,7 @@
     s.parentNode.insertBefore(e, s);
 })();
 </script>
+
 <script type="text/javascript">
   var rpxJsHost = (("https:" == document.location.protocol) ? "https://" : "http://static.");
   document.write(unescape("%3Cscript src='" + rpxJsHost + "rpxnow.com/js/lib/rpx.js' type='text/javascript'%3E%3C/script%3E"));
@@ -65,22 +66,16 @@
   RPXNOW.init({appId: 'bnfbfddhjbocnhhfnhia',
     xdReceiver: '/rpx_xdcomm.html'});
 </script>
-
 <script type="text/javascript">
-function postComment(){
-  
-   
-   RPXNOW.loadAndRun(['Social'], function () {
-   	var jnActivity = new RPXNOW.Social.Activity("Share", 
-   	"found", 
-   	window.location);
-	jnActivity.setUserGeneratedContent("Please pay your debts!");
-	jnActivity.setTitle('Prestamé');
-	jnActivity.setDescription('Be a good samaritan and pay your debt to me');
-    //RPXNOW.Social.publishActivity( window.jnActivity );
-
+function rpxSocial (){
+  RPXNOW.loadAndRun(['Social'], function () {
+    var activity = new RPXNOW.Social.Activity(
+       "Prestamé",
+       "commented on 'Like My New Perfume?' on cuteoverload.com",
+       "http://cuteoverload.com/2009/10/26/like-my-new-perfume/");
+    RPXNOW.Social.publishActivity(activity);
   });
-  }
+}
 </script>
 </head>
 <body>
@@ -111,7 +106,7 @@ function postComment(){
               <li><a href="#contact">Contact</a></li>
             </ul>
             <p class="navbar- pull-right">
-            	<a class="btn btn-primary" href="javascript:postComment()">Share</a>
+            	<a class="btn btn-primary" href="javascript:rpxSocial()">Share</a>
             	<% if @currentuser %>
             	<%= @currentuser[:profile] %>
             	<% else %>

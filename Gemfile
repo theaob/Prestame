@@ -10,12 +10,13 @@ gem 'rails', '3.2.1'
 gem 'devise','1.1.rc0'
 #gem 'twitter'
 gem 'nifty-generators'
+gem 'mysql'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :development do
   gem 'rspec-rails'
-  gem 'mysql'
+  
 end
 
 
@@ -28,7 +29,6 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'pg'
 end
 
 gem 'jquery-rails'
