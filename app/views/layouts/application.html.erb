@@ -66,17 +66,7 @@
   RPXNOW.init({appId: 'bnfbfddhjbocnhhfnhia',
     xdReceiver: '/rpx_xdcomm.html'});
 </script>
-<script type="text/javascript">
-function rpxSocial (){
-  RPXNOW.loadAndRun(['Social'], function () {
-    var activity = new RPXNOW.Social.Activity(
-       "Prestamé",
-       "commented on 'Like My New Perfume?' on cuteoverload.com",
-       "http://cuteoverload.com/2009/10/26/like-my-new-perfume/");
-    RPXNOW.Social.publishActivity(activity);
-  });
-}
-</script>
+
 </head>
 <body>
 
@@ -106,6 +96,17 @@ function rpxSocial (){
               <li><a href="#contact">Contact</a></li>
             </ul>
             <p class="navbar- pull-right">
+            	<script type="text/javascript">
+				function rpxSocial (){
+				  RPXNOW.loadAndRun(['Social'], function () {
+				    var activity = new RPXNOW.Social.Activity(
+				       "Prestamé",
+				       "commented on 'Like My New Perfume?' on cuteoverload.com",
+				       "http://cuteoverload.com/2009/10/26/like-my-new-perfume/");
+				    RPXNOW.Social.publishActivity(activity);
+				  });
+				}
+				</script>
             	<a class="btn btn-primary" href="javascript:rpxSocial()">Share</a>
             	<% if @currentuser %>
             	<%= @currentuser[:profile] %>
