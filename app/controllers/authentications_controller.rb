@@ -1,6 +1,8 @@
 class AuthenticationsController < ApplicationController
 def index
-  @authentications = current_user.authentications if current_user
+ @currentuser = session
+ puts @currentuser
+ #render(:template=>'home/index')
 end
 
 def create

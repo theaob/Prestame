@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Prestamé</title>
-  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag    "bootstrap.min" %>
   <style type="text/css">
       body {
         padding-top: 60px;
@@ -15,25 +15,25 @@
     <meta charset="utf-8">
 
   <%= csrf_meta_tags %>
-    <script src="./js/jquery.js"></script>
-    <script src="./js/bootstrap-transition.js"></script>
-    <script src="./js/bootstrap-alert.js"></script>
-    <script src="./js/bootstrap-modal.js"></script>
-    <script src="./js/bootstrap-dropdown.js"></script>
-    <script src="./js/bootstrap-scrollspy.js"></script>
-    <script src="./js/bootstrap-tab.js"></script>
-    <script src="./js/bootstrap-tooltip.js"></script>
-    <script src="./js/bootstrap-popover.js"></script>
-    <script src="./js/bootstrap-button.js"></script>
-    <script src="./js/bootstrap-collapse.js"></script>
-    <script src="./js/bootstrap-carousel.js"></script>
-    <script src="./js/bootstrap-typeahead.js"></script>
+  <%= javascript_include_tag "jquery" %>
+   <%= javascript_include_tag "bootstrap-transition.js" %>
+    <%= javascript_include_tag "bootstrap-alert.js" %>
+    <%= javascript_include_tag "bootstrap-modal.js" %>
+    <%= javascript_include_tag "bootstrap-dropdown.js" %>
+    <%= javascript_include_tag "bootstrap-scrollspy.js" %>
+    <%= javascript_include_tag "bootstrap-tab.js" %>
+    <%= javascript_include_tag "bootstrap-tooltip.js" %>
+    <%= javascript_include_tag "bootstrap-popover.js" %>
+    <%= javascript_include_tag "bootstrap-button.js" %>
+    <%= javascript_include_tag "bootstrap-collapse.js" %>
+    <%= javascript_include_tag "bootstrap-carousel.js" %>
+    <%= javascript_include_tag "bootstrap-typeahead.js" %>
     <script type="text/javascript">
 (function() {
     if (typeof window.janrain !== 'object') window.janrain = {};
     window.janrain.settings = {};
     
-    janrain.settings.tokenUrl = 'http://localhost:3000/auth/';
+    janrain.settings.tokenUrl = 'http://localhost:3000/authentications/';
 
     function isReady() { janrain.ready = true; };
     if (document.addEventListener) {
@@ -55,6 +55,32 @@
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(e, s);
 })();
+</script>
+<script type="text/javascript">
+  var rpxJsHost = (("https:" == document.location.protocol) ? "https://" : "http://static.");
+  document.write(unescape("%3Cscript src='" + rpxJsHost + "rpxnow.com/js/lib/rpx.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  RPXNOW.init({appId: 'bnfbfddhjbocnhhfnhia',
+    xdReceiver: '/rpx_xdcomm.html'});
+</script>
+
+<script type="text/javascript">
+function postComment(){
+  
+   
+   RPXNOW.loadAndRun(['Social'], function () {
+   	var jnActivity = new RPXNOW.Social.Activity("Share", 
+   	"found", 
+   	window.location);
+	jnActivity.setUserGeneratedContent("Please pay your debts!");
+	jnActivity.setTitle('Prestamé');
+	jnActivity.setDescription('Be a good samaritan and pay your debt to me');
+    //RPXNOW.Social.publishActivity( window.jnActivity );
+
+  });
+  }
 </script>
 </head>
 <body>
@@ -84,7 +110,15 @@
               <li><%= link_to "Borrowings",{:controller=>'borrow',:action=>'index'}%></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
-            <p class="navbar- pull-right"><a class="btn btn-primary btn-danger" data-toggle="modal" href="#loginModal">Login</a></p>
+            <p class="navbar- pull-right">
+            	<a class="btn btn-primary" href="javascript:postComment()">Share</a>
+            	<% if @currentuser %>
+            	<%= @currentuser[:profile] %>
+            	<% else %>
+            	<a class="btn btn-primary btn-danger" data-toggle="modal" href="#loginModal">Login</a>
+            	<% end %>
+            	
+        	</p>
           </div><!--/.nav-collapse -->
         </div>
       </div>
