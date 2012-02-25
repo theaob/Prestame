@@ -33,7 +33,7 @@
     if (typeof window.janrain !== 'object') window.janrain = {};
     window.janrain.settings = {};
     
-    janrain.settings.tokenUrl = 'http://prestame.herokuapp.com/authentications/';
+    janrain.settings.tokenUrl = 'http://localhost:3000/authentications/';
 
     function isReady() { janrain.ready = true; };
     if (document.addEventListener) {
@@ -57,16 +57,6 @@
 })();
 </script>
 
-<script type="text/javascript">
-  var rpxJsHost = (("https:" == document.location.protocol) ? "https://" : "http://static.");
-  document.write(unescape("%3Cscript src='" + rpxJsHost + "rpxnow.com/js/lib/rpx.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-
-<script type="text/javascript">
-  RPXNOW.init({appId: 'bnfbfddhjbocnhhfnhia',
-    xdReceiver: '/rpx_xdcomm.html'});
-</script>
-
 </head>
 <body>
 
@@ -83,31 +73,29 @@
           <div class="nav-collapse">
             <ul class="nav">
             	<li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Accounts <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
+                      <li><%= link_to "Lend Someone",{:controller=>'borrows',:action=>'new'}%></li>
+                      <li><%= link_to "Active Lendings",{:controller=>'borrows',:action=>'active'}%></li>
+                      <li><%= link_to "Completed Lendings",{:controller=>'borrows',:action=>'completed'}%></a></li>
                       <li class="divider"></li>
-                      <li><a href="#">Separated link</a></li>
+                      <li><%= link_to "Show All Lendings",{:controller=>'borrows',:action=>'index'}%></li>
                     </ul>
                   </li>
-              <li><%= link_to "Borrowings",{:controller=>'borrow',:action=>'index'}%></li>
-              <li><a href="#contact">Contact</a></li>
+              
+              <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to "Edit Profile",{:controller=>'users',:action=>'edit'}%></li>
+                      <li><%= link_to "Show Profile",{:controller=>'users',:action=>'show'}%></li>
+                      <li class="divider"></li>
+                      <li><%= link_to "Stats",{:controller=>'users',:action=>'stats'}%></li>
+                    </ul>
+              </li>
+              <li><%= link_to "Prestamé Stats",{:controller=>'stats',:action=>'index'}%></li>
+              <li><%= link_to "About",{:controller=>'home',:action=>'about'}%></li>
             </ul>
             <p class="navbar- pull-right">
-            	<script type="text/javascript">
-				function rpxSocial (){
-				  RPXNOW.loadAndRun(['Social'], function () {
-				    var activity = new RPXNOW.Social.Activity(
-				       "Prestamé",
-				       "commented on 'Like My New Perfume?' on cuteoverload.com",
-				       "http://cuteoverload.com/2009/10/26/like-my-new-perfume/");
-				    RPXNOW.Social.publishActivity(activity);
-				  });
-				}
-				</script>
-            	<a class="btn btn-primary" href="javascript:rpxSocial()">Share</a>
             	<% if @currentuser %>
             	<%= @currentuser[:profile] %>
             	<% else %>
@@ -121,18 +109,23 @@
     </div>
 
     <div class="container-fluid">
-
+	<div class="row-fluid">
 
 <%= yield %>
 
 
 
-      <hr>
-		
+</div>
+      
+	<div class='span3'>	
+		<hr>
       <footer>
-        <p>&copy; Onur Baykal 2012</p>
+        <p>&copy; <a href="http://onurbaykal.com.tr">Onur Baykal</a>  2012</p>
       </footer>
-
+	</div>
+	
+	
+	
     </div>
 
 
