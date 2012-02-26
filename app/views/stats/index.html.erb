@@ -32,7 +32,7 @@
     <tr>
       <td>Average debt amount</td>
       <td><%= @debtavg %></td>
-      <td rowspan="2"><img src="http://chart.apis.google.com/chart?chxt=x&chbh=a&chs=440x220&cht=bhs&chco=4D89F9,C6D9FD&chd=t:<%= @debtavg %>|<%= @maxdebt %>&chtt=Average+debt+over+max+debt"/></td>
+      <td rowspan="2"><img src="http://chart.apis.google.com/chart?chxt=y&chbh=a&chs=300x225&cht=bvg&chco=A2C180,3D7930&chds=0,1000&chd=t:<%= @debtavg %>|<%= @maxdebt %>&chtt=Average+debt+over+max+debt"/></td>
     </tr>
     <tr>
       <td>Maximum debt</td>
@@ -50,7 +50,7 @@
     <tr>
       <td>Total of active debts</td>
       <td><%= @tadebtamount %></td>
-      <td rowspan="3"><img src="http://chart.apis.google.com/chart?chxt=x&chbh=a&chs=440x220&cht=bhs&chco=4D89F9,C6D9FD&chd=t:<%= @tpdebtamount %>|<%= @tadebtamount %>&chtt=Paid+amount+over+unpaid+amount"/></td>
+      <td rowspan="3"><img src="http://chart.apis.google.com/chart?chxt=y&chbh=a&chs=300x225&cht=bvg&chco=A2C180,3D7930&chds=0,1000&chd=t:<%= @tpdebtamount %>|<%= @tadebtamount %>&chtt=Paid+amount+over+unpaid+amount"/></td>
     </tr>
     <tr>
       <td>Total of passive debts</td>
