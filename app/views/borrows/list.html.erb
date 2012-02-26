@@ -90,13 +90,17 @@
 					<%= borrow.amount+(borrow.amount*borrow.interest)/100 %>
 				</td>
 				<td>
-					<%= borrow.duedate %>
+					<%= borrow.duedate.to_formatted_s(:long_ordinal) %>
 				</td>
 				<td>
-					<%= borrow.paid %>
+					<% if borrow.paid %>
+					<%= "Paid" %>
+					<%else%>
+					<%= "Unpaid" %>
+					<% end %>
 				</td>
 				<td>
-					<%= borrow.created_at %>
+					<%= borrow.created_at.to_formatted_s(:long_ordinal) %>
 				</td>
 			</tr>
 		</tbody>
