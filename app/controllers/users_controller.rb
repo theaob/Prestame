@@ -40,9 +40,6 @@ class UsersController < ApplicationController
 		
 		if(@user.update_attributes(params[:user]))
 			session[:name]=@user.name
-			if(@user.email)
-			UserMailer.test_mail(@user).deliver
-		end
 			flash[:success] = "User profile updated"
 			redirect_to(:controller=>'home',:action=>'index')	
 		else

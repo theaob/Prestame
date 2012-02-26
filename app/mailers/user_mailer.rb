@@ -1,8 +1,5 @@
 class UserMailer < ActionMailer::Base
   default from: "no-reply@prestame.herokuapp.com"
-	def test_mail(user)
-		mail(:to=>user.email,:subject=>"Your Email Address Is Updated")
-	end
 	
 	def add_borrow(borrow)
 		@user = User.find(borrow.user_id)
