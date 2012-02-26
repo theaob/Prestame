@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
   default from: "no-reply@prestame.herokuapp.com"
-	default cc:"theaob@gmail.com"
+	default cc:"onur@prestame.herokuapp.com"
 	
 	def add_borrow(borrow)
 		@user = User.find(borrow.user_id)
