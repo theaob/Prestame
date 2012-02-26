@@ -1,0 +1,20 @@
+<div class='span8'>
+	<h2>Lend Somebody Money</h2><hr/>
+	
+	<%= error_messages_for(@borrow)%>
+<%= form_for(:borrow, :url=>{:action=>'create2'}, :html=>{:class=>'.form-horizontal'}) do |f|%>
+	<fieldset>
+	<%= f.label :receiver, 'To Whom :' %>
+	<%= f.text_field(:receiver)%><br/>
+	<%= f.label :amount, 'Amount :' %>
+	<%= f.text_field(:amount,:placeholder=>"Enter only numbers, no units")%><br/>
+	<%= f.label :interest, 'Interest:' %>
+	<%= f.text_field(:interest,:value=>0,:placeholder=>"Enter only percentage")%><br/>
+	<%= f.label :due_date, 'Due Date:' %>
+	<%= f.date_select(:duedate,:order=>[:day,:month,:year],:include_blank=>true,:start_year=> Time.now.year)%><br/>
+	<div class="form-actions">
+	<%= submit_tag('Create A Borrowing',:class=>'btn btn-inverse')%>
+	</div>
+	</fieldset>
+<% end %>
+</div>

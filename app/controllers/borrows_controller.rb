@@ -97,12 +97,37 @@ class BorrowsController < ApplicationController
 		redirect_to(:action=>'list')
 	end
 	
-	def createcheck
+	def create2
 		if(!session[:user_id])
 				flash[:error] = "You have to login first!"
 				redirect_to(:controller=>'home',:action=>'index')
 		end
-		
+		@borrow = Borrow.new(params[:borrow])
+		@borrow.user_id = session[:user_id]
+		if @borrow.save
+			UserMailer.add_borrow(@borrow).deliver
+				flash[:success] = "New Lending Added"
+				redirect_to(:action=>'list')
+		else
+			flash.now[:error] = "Couldn't save new lending"
+			render('new2')
+		end
+	end
+	
+	def createcheck(borrow)
+		if(!session[:user_id])
+				flash[:error] = "You have to login first!"
+				redirect_to(:controller=>'home',:action=>'index')
+		end
+			borrow.user_id = session[:user_id]
+			if @borrow.save
+				UserMailer.add_borrow(borrow).deliver
+				flash[:success] = "New Lending Added"
+				redirect_to(:action=>'list')
+			else
+				flash.now[:error] = "Couldn't save new lending"
+				render('new')
+			end
 	end
 	
 	def create
@@ -110,17 +135,20 @@ class BorrowsController < ApplicationController
 				flash[:error] = "You have to login first!"
 				redirect_to(:controller=>'home',:action=>'index')
 		end
-		if(session[:user_id])
-			@borrow = Borrow.new(params[:borrow])
-			@borrow.user_id = session[:user_id]
-			if @borrow.save
-				UserMailer.add_borrow(@borrow).deliver
-				flash[:success] = "New Lending Added"
-				redirect_to(:action=>'list')
-			else
-				flash.now[:error] = "Couldn't save new lending"
-				render('new')
-			end
+		@borrow = Borrow.new(params[:borrow])
+		@borrow.user_id = session[:user_id]
+		#@borrow = )
+		borrow2 = Borrow.find_by_receiver(@borrow.receiver)
+		if borrow2
+			flash[:notice] = "This person has unpaid debts to you"
+			#redirect_to('new')
+			render('new2')
+			#redirect_to(:action=>'new2')
+		else
+			flash.now[:notice] = "This person has no unpaid debts to you"
+			#redirect_to('new')
+			render('edit')
+			#createcheck(@borrow)
 		end
 	end
 	
