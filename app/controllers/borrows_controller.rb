@@ -35,7 +35,7 @@ class BorrowsController < ApplicationController
 			if (borrow.user_id==session[:user_id])
 				borrow.paid = !borrow.paid
 				if(borrow.paid)
-					UserMailer.borrow_paid(@orrow).deliver
+					UserMailer.borrow_paid(borrow).deliver
 				end
 				borrow.save
 				flash[:success] = "Lending is marked paid"
