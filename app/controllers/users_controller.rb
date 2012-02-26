@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 				redirect_to(:controller=>'home',:action=>'index')
 		end
 		if params[:id]
-			@user = User.find(params[:id])
+			@user = User.find(session[:user_id])
 		else
 			flash[:error] = "Bad profile ID"
 			#redirect_to(:action=>'edit',:id=>id)
