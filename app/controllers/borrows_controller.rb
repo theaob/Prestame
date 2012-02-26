@@ -16,7 +16,7 @@ class BorrowsController < ApplicationController
 			
 			redirect_to(:action=>'list')
 		else
-			
+			flash.now[:error] = "Borrowing could not be saved"
 			render('new')
 		end
 		

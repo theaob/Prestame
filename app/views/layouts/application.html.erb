@@ -99,6 +99,26 @@
     </div>
 
     <div class="container-fluid">
+    	<% if flash[:success] %>
+    	<div class="alert alert-success">
+		  <%= flash[:success] %>
+		</div>
+    	<% end %>
+    	
+    	
+    	<% if flash[:notice] %>
+    	<div class="alert alert-info">
+		  <%= flash[:notice] %>
+		</div>
+    	<% end %>
+    	
+    	<% if flash[:error] %>
+    	<div class="alert alert-error">
+		  <%= flash[:error] %>
+		</div>
+    	<% end %>
+    	
+    	
 	<div class="row-fluid">
 
 <%= yield %>
@@ -137,8 +157,12 @@
               <h3>Login via OAuth</h3>
             </div>
             <div class="modal-body">
+              <a href=<%="auth/facebook"%>><%= image_tag "facebook_128.png"%></a>&nbsp;
+              <a href=<%="auth/twitter"%>><%= image_tag "twitter_128.png"%></a>
+ 			<br/>Deployment:
               <a href=<%="#{Rails.root}/../auth/facebook"%>><%= image_tag "facebook_128.png"%></a>&nbsp;
               <a href=<%="#{Rails.root}/../auth/twitter"%>><%= image_tag "twitter_128.png"%></a>
+
             </div>
             <div class="modal-footer">
               <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
