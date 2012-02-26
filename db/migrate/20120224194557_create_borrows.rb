@@ -10,6 +10,7 @@ class CreateBorrows < ActiveRecord::Migration
     	t.timestamps
     end
     add_index("borrows","user_id")
+    add_index("borrows","paid")
   end
   
   def self.down

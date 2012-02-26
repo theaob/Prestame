@@ -1,11 +1,11 @@
 
-<div class="span6">
+<div class="span12">
 	
 <h2>Borrowings</h2>	<br/>
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>	
-		<th>ID</th>
+		
 		<th>Receiver</th>
 		<th>Amount</th>
 		<th>Interest</th>
@@ -13,14 +13,13 @@
 		<th>Is Paid?</th>
 		<th>Given At</th>
 		<th>Lender</th>	
+		<th>Actions</th>
+		<th>Share</th>
 		</tr>	
 	</thead>
 	<tbody>	
 		<% @borrows.each do |borrow| %>
 			<tr>
-				<td>
-					<%= borrow.id %>
-				</td>
 				<td>
 					<%= borrow.receiver %>
 				</td>
@@ -41,6 +40,33 @@
 				</td>
 				<td>
 					<%= borrow.user_id%>
+				</td>
+				<td>
+					<%= link_to "Edit",{:controller=>'borrows',:action=>'edit',:id=>borrow.id}%>&nbsp;|&nbsp;
+					<%= link_to "Mark Paid",{:controller=>'borrows',:action=>'pay',:id=>borrow.id}%>&nbsp;|&nbsp;
+					<%= link_to "Delete",{:controller=>'borrows',:action=>'delete',:id=>borrow.id}%>
+				</td>
+				<td>
+					<% if !session[:provider]=="twitter"%>
+					<a href="https://twitter.com/share" class="twitter-share-button" data-text="<%=borrow.receiver%> needs to pay his debt to me by <%=borrow.duedate %>" data-count="none" data-lang="en" data-url="http://prestame.herokuapp.com" data-hashtags="Prestame,RailsArena">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					<%else%>
+					<div id="fb-root"></div>
+					      <script src="http://connect.facebook.net/en_US/all.js">
+					      </script>
+					      <script>
+					      function shareonfb(){
+					         FB.init({ 
+					            appId:'353419201365425', cookie:true, 
+					            status:true, xfbml:true 
+					         });
+					
+					         FB.ui({ method: 'feed', 
+					            message: '<%=borrow.receiver%> needs to pay his debt to me by <%=borrow.duedate %>'});
+					        }
+					      </script>
+							<a href="javascript:shareonfb()" class="btn btn-primary">Share on FB</a>
+					<%end%>
 				</td>	
 			</tr>
 		<% end %>	

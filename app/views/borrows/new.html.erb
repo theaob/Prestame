@@ -1,15 +1,15 @@
-<div class='span4'>
+<div class='span8'>
 	<h2>Lend Somebody Money</h2><hr/>
 <%= form_for(:borrow, :url=>{:action=>'create'}, :html=>{:class=>'.form-horizontal'}) do |f|%>
 	<fieldset>
 	<%= f.label :receiver, 'To Whom :' %>
 	<%= f.text_field(:receiver)%><br/>
 	<%= f.label :amount, 'Amount :' %>
-	<%= f.text_field(:amount)%><br/>
+	<%= f.text_field(:amount,:placeholder=>"Enter only numbers, no units")%><br/>
 	<%= f.label :interest, 'Interest:' %>
-	<%= f.text_field(:interest)%><br/>
+	<%= f.text_field(:interest,:placeholder=>"Enter only percentage")%><br/>
 	<%= f.label :due_date, 'Due Date:' %>
-	<%= f.text_field(:duedate)%><br/>
+	<%= f.date_select(:duedate,:order=>[:day,:month,:year],:include_blank=>true,:start_year=> Time.now.year)%><br/>
 	<div class="form-actions">
 	<%= submit_tag('Create A Borrowing',:class=>'btn btn-inverse')%>
 	</div>
