@@ -145,10 +145,16 @@ class BorrowsController < ApplicationController
 			render('new2')
 			#redirect_to(:action=>'new2')
 		else
-			flash.now[:notice] = "This person has no unpaid debts to you"
-			#redirect_to('new')
-			render('edit')
-			#createcheck(@borrow)
+			@borrow = Borrow.new(params[:borrow])
+			@borrow.user_id = session[:user_id]
+			if @borrow.save
+				UserMailer.add_borrow(@borrow).deliver
+					flash[:success] = "New Lending Added"
+					redirect_to(:action=>'list')
+			else
+				flash.now[:error] = "Couldn't save new lending"
+				render('new2')
+			end
 		end
 	end
 	
