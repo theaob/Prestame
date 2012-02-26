@@ -16,6 +16,16 @@ class UsersController < ApplicationController
 		end
 	end
 	
+	def show
+		if params[:id]
+			@user = User.all
+		else
+			flash[:error] = "Bad profile ID"
+			#redirect_to(:action=>'edit',:id=>id)
+			redirect_to(:controller=>'home',:action=>'index')
+		end
+	end
+	
 	def update
 		if(!session[:user_id])
 				flash[:error] = "You have to login first!"

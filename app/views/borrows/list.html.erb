@@ -36,7 +36,11 @@
 					<%= borrow.duedate.to_s %>
 				</td>
 				<td>
-					<%= borrow.paid %>
+					<% if borrow.paid %>
+					<%= "Paid" %>
+					<%else%>
+					<%= "Unpaid" %>
+					<% end %>
 				</td>
 				<td>
 					<%= borrow.created_at %>
