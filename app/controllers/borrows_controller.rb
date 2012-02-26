@@ -93,6 +93,14 @@ class BorrowsController < ApplicationController
 		redirect_to(:action=>'list')
 	end
 	
+	def createcheck
+		if(!session[:user_id])
+				flash[:error] = "You have to login first!"
+				redirect_to(:controller=>'home',:action=>'index')
+		end
+		
+	end
+	
 	def create
 		if(!session[:user_id])
 				flash[:error] = "You have to login first!"
@@ -102,6 +110,7 @@ class BorrowsController < ApplicationController
 			@borrow = Borrow.new(params[:borrow])
 			@borrow.user_id = session[:user_id]
 			if @borrow.save
+				UserMailer.add_borrow(@borrow).deliver
 				flash[:success] = "New Lending Added"
 				redirect_to(:action=>'list')
 			else
