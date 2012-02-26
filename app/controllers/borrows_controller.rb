@@ -5,6 +5,10 @@ class BorrowsController < ApplicationController
 	end
 	
 	def create
+		if(!session[:user_id])
+				flash[:error] = "You have to login first!"
+				redirect_to(:controller=>'home',:action=>'index')
+		end
 		if(session[:user_id])
 			@borrow = Borrow.new(params[:borrow])
 			@borrow.user_id = session[:user_id]
@@ -27,22 +31,36 @@ class BorrowsController < ApplicationController
 	end
 	
 	def list
+		if(!session[:user_id])
+				flash[:error] = "You have to login first!"
+				redirect_to(:controller=>'home',:action=>'index')
+		end
 		if(session[:user_id])
 			@borrows = Borrow.where(:user_id=>session[:user_id])
 		end
 	end
 	
 	def active
-		if(session[:user_id])
-			@borrows = Borrow.where(:paid=>false);
-			render('list')
+		if(!session[:user_id])
+				flash[:error] = "You have to login first!"
+				redirect_to(:controller=>'home',:action=>'index')
 		end
+		
+		@borrows = Borrow.where('paid = ? AND user_id = ?',false,session[:user_id]);
+		render('list')
+		
 	end
 	
 	def completed
-		if(session[:user_id])
-			@borrows = Borrow.where(:paid=>true);
-			render('list')
+		if(!session[:user_id])
+				flash[:error] = "You have to login first!"
+				redirect_to(:controller=>'home',:action=>'index')
 		end
+		
+		
+		@borrows = Borrow.where('paid = ? AND user_id = ?',true,session[:user_id]);
+		render('list')
+		
+			
 	end
 end

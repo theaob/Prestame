@@ -22,21 +22,23 @@ ActiveRecord::Schema.define(:version => 20120225124107) do
   end
 
   create_table "borrows", :force => true do |t|
-    t.integer  "user_id",                       :null => false
-    t.string   "receiver",                      :null => false
-    t.integer  "amount",                        :null => false
+    t.integer  "user_id",                          :null => false
+    t.string   "receiver",                         :null => false
+    t.string   "receiver_mail"
+    t.integer  "amount",                           :null => false
     t.integer  "interest"
-    t.boolean  "paid",       :default => false
+    t.boolean  "paid",          :default => false
     t.date     "duedate"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
+  add_index "borrows", ["paid"], :name => "index_borrows_on_paid"
   add_index "borrows", ["user_id"], :name => "index_borrows_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name",       :null => false
-    t.string   "email",      :null => false
+    t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

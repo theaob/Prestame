@@ -4,6 +4,8 @@
 	<fieldset>
 	<%= f.label :receiver, 'To Whom :' %>
 	<%= f.text_field(:receiver)%><br/>
+	<%= f.label :receiver_mail, 'Recievers Mail (can be empty) :' %>
+	<%= f.text_field(:receiver_mail)%><br/>
 	<%= f.label :amount, 'Amount :' %>
 	<%= f.text_field(:amount,:placeholder=>"Enter only numbers, no units")%><br/>
 	<%= f.label :interest, 'Interest:' %>
