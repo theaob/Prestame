@@ -3,7 +3,6 @@ class CreateBorrows < ActiveRecord::Migration
     create_table :borrows do |t|
     	t.integer "user_id", :null=>false
     	t.string "receiver", :null=>false
-    	t.string "receiver_mail"
     	t.integer "amount", :null=>false
     	t.integer "interest"
         t.boolean "paid", :default=>false
