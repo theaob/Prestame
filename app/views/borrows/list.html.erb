@@ -33,7 +33,9 @@
 					<%= borrow.amount+(borrow.amount*borrow.interest)/100 %>
 				</td>
 				<td>
-					<%= borrow.duedate.to_s %>
+					<% if borrow.duedate %>
+					<%= borrow.duedate.to_formatted_s(:long_ordinal) %>
+					<%end %>
 				</td>
 				<td>
 					<% if borrow.paid %>
@@ -43,7 +45,7 @@
 					<% end %>
 				</td>
 				<td>
-					<%= borrow.created_at %>
+					<%= borrow.created_at.to_formatted_s(:long_ordinal) %>
 				</td>
 				<td>
 					<%= link_to "Edit",{:controller=>'borrows',:action=>'edit',:id=>borrow.id}%>&nbsp;|&nbsp;
