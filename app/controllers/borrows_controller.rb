@@ -9,6 +9,7 @@ class BorrowsController < ApplicationController
 			#borrow = Borrow.where("id = ?", params[:id])
 			borrow = Borrow.find(params[:id])
 			if (borrow.user_id==session[:user_id])
+				UserMailer.delete_borrow(borrow).deliver
 				borrow.destroy
 				flash[:success] = "Lending is deleted"
 				redirect_to(:action=>'list')
@@ -33,6 +34,9 @@ class BorrowsController < ApplicationController
 			borrow = Borrow.find(params[:id])
 			if (borrow.user_id==session[:user_id])
 				borrow.paid = !borrow.paid
+				if(borrow.paid)
+					UserMailer.borrow_paid(@orrow).deliver
+				end
 				borrow.save
 				flash[:success] = "Lending is marked paid"
 				redirect_to(:action=>'list')

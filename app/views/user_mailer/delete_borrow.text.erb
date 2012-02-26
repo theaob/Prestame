@@ -1,0 +1,7 @@
+Dear <%= @user.name %>,
+
+You have just deleted a lending to Prestamé. Here are the informations regarding the lending:
+
+<%=@borrow.receiver%> took <%= @borrow.amount %> from you at <%= @borrow.created_at %> and <% if @borrow.duedate %><%= "will pay you at #{@borrow.duedate}."%><%else%><%= "there is not a due date set."%><%end%> You will be paid <%= @borrow.amount+(@borrow.amount*@borrow.interest)/100%>.
+	
+This is just a information mail. You can change this lending at Prestamé
