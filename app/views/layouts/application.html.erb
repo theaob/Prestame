@@ -83,10 +83,12 @@
               <li><%= link_to "Prestamé Stats",{:controller=>'stats',:action=>'index'}%></li>
               <li><a data-toggle="modal" href="#aboutModal">About</a></li>
             </ul>
-            <p class="navbar- pull-right">
-            	<% if @currentuser %>
-            	<%= @currentuser[:profile] %>
+            
+            	<% if session[:name] %>
+            	<p class="navbar-text pull-right">
+            	<%= session[:name] %>&nbsp;|&nbsp;<%= link_to "Log Out",{:controller=>'authentications',:action=>'logout'}%>
             	<% else %>
+            	<p class="navbar- pull-right">
             	<a class="btn btn-primary btn-danger" data-toggle="modal" href="#loginModal"><i class="icon-user icon-white"></i> Login</a>
             	<% end %>
             	
@@ -115,7 +117,6 @@
 	
 	
     </div>
-<%= "#{Rails.root}/config/ca-bundle.crt" %>
 
 <div id="aboutModal" class="modal hide fade" style="display: none; ">
             <div class="modal-header">
@@ -136,8 +137,8 @@
               <h3>Login via OAuth</h3>
             </div>
             <div class="modal-body">
-              <a href="auth/facebook"><%= image_tag "facebook_128.png"%></a>&nbsp;
-              <a href="auth/twitter"><%= image_tag "twitter_128.png"%></a>
+              <a href=<%="#{Rails.root}/auth/facebook"%>><%= image_tag "facebook_128.png"%></a>&nbsp;
+              <a href=<%="#{Rails.root}/auth/twitter"%>><%= image_tag "twitter_128.png"%></a>
             </div>
             <div class="modal-footer">
               <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
