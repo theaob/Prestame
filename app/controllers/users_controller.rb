@@ -1,11 +1,5 @@
 class UsersController < ApplicationController
 	
-	def create
-		
-		
-		
-	end
-	
 	def stats
 		
 		redirect_to(:controller=>'stats',:action=>'user')
@@ -27,8 +21,9 @@ class UsersController < ApplicationController
 			flash[:success] = "User profile updated"
 			redirect_to(:controller=>'home',:action=>'index')	
 		else
-			flash[:error] = "Profile couln't be updated. Try again"
-			redirect_to(:action=>'edit',:id=>id)
+			flash[:error] = "Profile could not be updated. Try again"
+			#redirect_to(:action=>'edit',:id=>id)
+			render('edit')
 		end
 		
 		

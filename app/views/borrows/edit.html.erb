@@ -1,8 +1,8 @@
 <div class='span8'>
-	<h2>Lend Somebody Money</h2><hr/>
+	<h2>Update Lending</h2><hr/>
 	
 	<%= error_messages_for(@borrow)%>
-<%= form_for(:borrow, :url=>{:action=>'create'}, :html=>{:class=>'.form-horizontal'}) do |f|%>
+<%= form_for(:borrow, :url=>{:action=>'update',:id=>params[:id]}, :html=>{:class=>'.form-horizontal'}) do |f|%>
 	<fieldset>
 	<%= f.label :receiver, 'To Whom :' %>
 	<%= f.text_field(:receiver)%><br/>
@@ -13,7 +13,7 @@
 	<%= f.label :due_date, 'Due Date:' %>
 	<%= f.date_select(:duedate,:order=>[:day,:month,:year],:include_blank=>true,:start_year=> Time.now.year)%><br/>
 	<div class="form-actions">
-	<%= submit_tag('Create A Borrowing',:class=>'btn btn-inverse')%>
+	<%= submit_tag('Update This Borrowing',:class=>'btn btn-inverse')%>
 	</div>
 	</fieldset>
 <% end %>

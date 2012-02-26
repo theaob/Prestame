@@ -28,7 +28,7 @@ def create
 		flash.now[:notice] = "Logged in"
 		render(:template=>'home/index')
 	else
-		user = User.new(:name=>@name,:email=>"")
+		user = User.new(:name=>@name,:email=>" ")
 		if user.save
 			session[:user_id] = user.id
 			login = Authentication.new(:user_id=>user.id,:provider=>provider,:uid=>uid)
@@ -54,6 +54,7 @@ end
 def logout
 	session[:name] = nil
 	session[:user_id] = nil
+	session[:provider] = nil
 	flash[:notice] = "Logged out"
 	render(:template=>'home/index')
 end
