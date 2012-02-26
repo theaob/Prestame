@@ -33,7 +33,7 @@
 					<%= borrow.amount+(borrow.amount*borrow.interest)/100 %>
 				</td>
 				<td>
-					<%= borrow.duedate %>
+					<%= borrow.duedate.to_s %>
 				</td>
 				<td>
 					<%= borrow.paid %>

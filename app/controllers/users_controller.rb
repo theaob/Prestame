@@ -6,6 +6,10 @@ class UsersController < ApplicationController
 	end
 	
 	def edit
+		if(!session[:user_id])
+				flash[:error] = "You have to login first!"
+				redirect_to(:controller=>'home',:action=>'index')
+		end
 		if(session[:user_id])
 			id = session[:user_id]
 			@user = User.find_by_id(id)
@@ -13,6 +17,10 @@ class UsersController < ApplicationController
 	end
 	
 	def update
+		if(!session[:user_id])
+				flash[:error] = "You have to login first!"
+				redirect_to(:controller=>'home',:action=>'index')
+		end
 		id = session[:user_id]
 		@user = User.find_by_id(id)
 		

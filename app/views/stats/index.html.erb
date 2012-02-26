@@ -12,32 +12,48 @@
   	<% if !@thisisforuser %>
     <tr>
       <td># of users</td>
-      <td>…</td>
+      <td><%= @usercount %></td>
     </tr>
     <% end %>
     <tr>
       <td># of debts</td>
-      <td>…</td>
+      <td><%= @debtcount %></td>
+    </tr>
+    <tr>
+      <td>Average debt amount</td>
+      <td><%= @debtavg %></td>
+    </tr>
+    <tr>
+      <td>Average interest amount</td>
+      <td><%= @intavg %></td>
+    </tr>
+    <tr>
+      <td>Maximum debt</td>
+      <td><%= @maxdebt %></td>
+    </tr>
+    <tr>
+      <td>Maximum interest</td>
+      <td><%= @maxint %></td>
     </tr>
     <tr>
       <td># of active debts</td>
-      <td>…</td>
+      <td><%= @adebtcount %></td>
     </tr>
     <tr>
       <td># of completed debts</td>
-      <td>…</td>
+      <td><%= @pdebtcount %></td>
     </tr>
     <tr>
-      <td>Amount of active debts</td>
-      <td>…</td>
+      <td>Total of active debts</td>
+      <td><%= @tadebtamount %></td>
     </tr>
     <tr>
-      <td>Amount of passive debts</td>
-      <td>…</td>
+      <td>Total of passive debts</td>
+      <td><%= @tpdebtamount %></td>
     </tr>
     <tr>
       <td>Total amount processed</td>
-      <td>…</td>
+      <td><%= @tdebtamount %></td>
     </tr>
   </tbody>
 </table>
