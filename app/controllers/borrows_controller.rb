@@ -16,7 +16,7 @@ class BorrowsController < ApplicationController
 				flash[:success] = "New Lending Added"
 				redirect_to(:action=>'list')
 			else
-				flash.now[:error] = "Borrowing could not be saved"
+				flash.now[:error] = "Please check the red fields"
 				render('new')
 			end
 		end
