@@ -13,27 +13,13 @@
     <tr>
       <td># of users</td>
       <td><%= @usercount %></td>
+      <td><img src="http://chart.apis.google.com/chart?chxt=y&chs=150x75&cht=gm&chd=t:<%= @usercount %>"/></td>
     </tr>
     <% end %>
     <tr>
       <td># of debts</td>
       <td><%= @debtcount %></td>
-    </tr>
-    <tr>
-      <td>Average debt amount</td>
-      <td><%= @debtavg %></td>
-    </tr>
-    <tr>
-      <td>Average interest amount</td>
-      <td><%= @intavg %></td>
-    </tr>
-    <tr>
-      <td>Maximum debt</td>
-      <td><%= @maxdebt %></td>
-    </tr>
-    <tr>
-      <td>Maximum interest</td>
-      <td><%= @maxint %></td>
+      <td rowspan="3"><img src="http://chart.apis.google.com/chart?chs=300x150&cht=p&chd=t:<%=@adebtcount%>,<%= @pdebtcount %>&chl=Active%20Debts|Paid%20Debts"/></td>
     </tr>
     <tr>
       <td># of active debts</td>
@@ -44,8 +30,27 @@
       <td><%= @pdebtcount %></td>
     </tr>
     <tr>
+      <td>Average debt amount</td>
+      <td><%= @debtavg %></td>
+      <td rowspan="2"><img src="http://chart.apis.google.com/chart?chxt=x&chbh=a&chs=440x220&cht=bhs&chco=4D89F9,C6D9FD&chd=t:<%= @debtavg %>|<%= @maxdebt %>&chtt=Average+debt+over+max+debt"/></td>
+    </tr>
+    <tr>
+      <td>Maximum debt</td>
+      <td><%= @maxdebt %></td>
+    </tr>
+    <tr>
+      <td>Average interest amount</td>
+      <td><%= @intavg %></td>
+      <td rowspan="2"><img src="http://chart.apis.google.com/chart?chxt=x&chbh=a&chs=440x220&cht=bhs&chco=4D89F9,C6D9FD&chd=t:<%= @intavg %>|<%= @maxint %>&chtt=Average+interest+over+max+interest"/></td>
+    </tr>
+    <tr>
+      <td>Maximum interest</td>
+      <td><%= @maxint %></td>
+    </tr>
+    <tr>
       <td>Total of active debts</td>
       <td><%= @tadebtamount %></td>
+      <td rowspan="3"><img src="http://chart.apis.google.com/chart?chxt=x&chbh=a&chs=440x220&cht=bhs&chco=4D89F9,C6D9FD&chd=t:<%= @tpdebtamount %>|<%= @tadebtamount %>&chtt=Paid+amount+over+unpaid+amount"/></td>
     </tr>
     <tr>
       <td>Total of passive debts</td>
