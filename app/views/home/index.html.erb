@@ -1,8 +1,18 @@
  <div class="hero-unit">
-        <h1><a rel="popover" data-content="Prestamé means 'Lend Me!' in Spanish" data-original-title="[pres’-tah-me]">¡Prestamé!</a></h1>
-        <p>Prestamé is an online web app for tracking your lending activities. You can view some stats and share your financial state or disgrace your debtor. This app is currently under development, can and will couse errors anytime.</p>
+        <h1>¡Prestamé!</h1>
+        <p><a id="example" rel="popover" data-content="Prestamé means 'Lend Me!' in Spanish" data-original-title="[pres’-tah-me]">Prestamé</a> is an online web app for tracking your lending activities. You can view some stats and share your financial state or disgrace your debtor. This app is currently under development, can and will couse errors anytime.</p>
         <p><a class="btn btn-primary btn-large" data-toggle="modal" href="#loginModal">Get Started &raquo;</a></p>
-        
+        <script>
+$(function () {
+    $("a[rel*=popover]")
+     .popover({
+        offset: 10
+     })
+     .click(function(e) { 
+            e.preventDefault()
+     })
+  });
+        </script>
     </div>
 
 
