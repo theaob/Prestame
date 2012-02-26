@@ -115,7 +115,7 @@
 	
 	
     </div>
-
+<%= "#{Rails.root}/config/ca-bundle.crt" %>
 
 <div id="aboutModal" class="modal hide fade" style="display: none; ">
             <div class="modal-header">
@@ -136,7 +136,8 @@
               <h3>Login via OAuth</h3>
             </div>
             <div class="modal-body">
-              <div id="janrainEngageEmbed"></div>
+              <a href="auth/facebook"><%= image_tag "facebook_128.png"%></a>&nbsp;
+              <a href="auth/twitter"><%= image_tag "twitter_128.png"%></a>
             </div>
             <div class="modal-footer">
               <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>

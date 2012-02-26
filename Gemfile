@@ -10,6 +10,10 @@ gem 'rails', '3.2.1'
 gem 'devise','1.1.rc0'
 #gem 'twitter'
 gem 'nifty-generators'
+gem "devise_rpx_connectable"
+gem "omniauth"
+gem "omniauth-twitter"
+gem "omniauth-facebook"
 
 # Gems used only for assets and not required
 # in production environments by default.

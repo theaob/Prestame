@@ -8,18 +8,17 @@ def index
  #params = { :apiKey => "1585662eb5a9b49188100482818027976adf948b", :token => @token }
  #url = URI.parse("https://rpxnow.com/api/v2/auth_info")
 
- @response = 'https://rpxnow.com/api/v2/auth_info'.to_uri.get(
-              :apiKey  => '1585662eb5a9b49188100482818027976adf948b', 
-              :token => @token
-            ).deserialise
+
 end
 
 def create
+	render :text => request.env['omniauth.auth'].to_yaml
 
 end
 
 def destroy
 
 end
+
 
 end

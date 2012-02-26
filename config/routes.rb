@@ -5,6 +5,7 @@ Prestame::Application.routes.draw do
   #get "home/index"
 
   root :to => "home#index"
+  match '/auth/:provider/callback' => 'authentications#create'
   #match '/auth/:provider/callback' => 'authentications#create'
   
   
